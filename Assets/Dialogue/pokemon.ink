@@ -1,5 +1,4 @@
-INCLUDE globals.ink
-
+=== choosePokemon ===
 {pokemon_name == "": -> main | -> already_chose }
 
 === main ===

@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Load Globals JSON")]
     [SerializeField] private TextAsset loadGlobalsJSON;
+    [SerializeField] private TextAsset story;
 
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
@@ -81,6 +82,7 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
+        currentStory = new Story(story.text);
 
         InitializeAudioInfoDictionary();
     }
@@ -127,9 +129,9 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON)
+    public void EnterDialogueMode(string path)
     {
-        currentStory = new Story(inkJSON.text);
+        currentStory.ChoosePathString(path);
 
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);

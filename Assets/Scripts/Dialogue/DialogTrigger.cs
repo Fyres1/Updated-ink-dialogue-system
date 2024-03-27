@@ -7,8 +7,8 @@ public class DialogTrigger : MonoBehaviour
     [Header("VisialCue")]
     [SerializeField] private GameObject visualCue;
 
-    [Header("Ink JSON")]
-    [SerializeField] private TextAsset inkJSON;
+    [Header("Path to story")]
+    [SerializeField] private string inkKnotPath;
 
     private bool playerInRange;
 
@@ -25,7 +25,7 @@ public class DialogTrigger : MonoBehaviour
             visualCue.SetActive(true);
             if (InputManager.GetInstance().GetInteractPressed())
             {
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                DialogueManager.GetInstance().EnterDialogueMode(inkKnotPath);
             }
         }
         else
